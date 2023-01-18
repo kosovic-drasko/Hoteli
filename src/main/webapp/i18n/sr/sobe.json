@@ -4,9 +4,11 @@
       "home": {
         "title": "Sobes",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Kreiraj novi Sobe",
-        "createOrEditLabel": "Kreirajte ili izmenite Sobe",
-        "notFound": "No Sobes found"
+        "createLabel": "Kreiraj ",
+
+        "createOrEditLabel": "Izmjenite",
+        "createOrEditLabelEdit": "Izmjeni sobu",
+        "notFound": "Nema sobe"
       },
       "created": "Kreiran je novi Sobe pod nazivom {{ param }}",
       "updated": "Sobe pod nazivom {{ param }} je ažuriran",

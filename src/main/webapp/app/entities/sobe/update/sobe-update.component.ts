@@ -14,7 +14,7 @@ import { SobeService } from '../service/sobe.service';
 })
 export class SobeUpdateComponent implements OnInit {
   isSaving = false;
-
+  sobes?: ISobe | undefined;
   editForm = this.fb.group({
     id: [],
     brojSobe: [null, [Validators.required]],

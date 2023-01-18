@@ -1,8 +1,11 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-sobe-heading" data-cy="SobeCreateUpdateHeading" jhiTranslate="hoteliApp.sobe.home.createOrEditLabel">
+      <h2 id="jhi-sobe-heading" data-cy="SobeCreateUpdateHeading" jhiTranslate="hoteliApp.sobe.home.createLabel" *ngIf="!sobes?.id">
         Create or edit a Sobe
+      </h2>
+      <h2 id="jhi-sobe-heading1" data-cy="SobeCreateUpdateHeading" jhiTranslate="hoteliApp.sobe.home.createOrEditLabel" *ngIf="sobes?.id">
+        Izmjeni podatke sobe
       </h2>
 
       <div>

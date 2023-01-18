@@ -5,7 +5,8 @@
         "title": "Sobes",
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Sobe",
-        "createOrEditLabel": "Create or edit a Sobe",
+        "createOrEditLabel": "Create  New Room",
+        "createOrEditLabelEdit": "Edit Room",
         "notFound": "No Sobes found"
       },
       "created": "A new Sobe is created with identifier {{ param }}",
