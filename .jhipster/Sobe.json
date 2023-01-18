@@ -1,0 +1,22 @@
+{
+  "changelogDate": "20230118193005",
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "brojSobe",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cijena",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Sobe",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

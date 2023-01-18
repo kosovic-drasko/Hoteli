@@ -48,6 +48,8 @@ public class CacheConfiguration {
             createCache(cm, hoteli.domain.User.class.getName());
             createCache(cm, hoteli.domain.Authority.class.getName());
             createCache(cm, hoteli.domain.User.class.getName() + ".authorities");
+            createCache(cm, hoteli.domain.Sobe.class.getName());
+            createCache(cm, hoteli.domain.Rezervacije.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

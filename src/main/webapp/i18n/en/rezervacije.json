@@ -1,0 +1,26 @@
+{
+  "hoteliApp": {
+    "rezervacije": {
+      "home": {
+        "title": "Rezervacijes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rezervacije",
+        "createOrEditLabel": "Create or edit a Rezervacije",
+        "notFound": "No Rezervacijes found"
+      },
+      "created": "A new Rezervacije is created with identifier {{ param }}",
+      "updated": "A Rezervacije is updated with identifier {{ param }}",
+      "deleted": "A Rezervacije is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rezervacije {{ id }}?"
+      },
+      "detail": {
+        "title": "Rezervacije"
+      },
+      "id": "ID",
+      "brojSobe": "Broj Sobe",
+      "datumDolaska": "Datum Dolaska",
+      "datumOdlaska": "Datum Odlaska"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "hoteliApp": {
+    "sobe": {
+      "home": {
+        "title": "Sobes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sobe",
+        "createOrEditLabel": "Create or edit a Sobe",
+        "notFound": "No Sobes found"
+      },
+      "created": "A new Sobe is created with identifier {{ param }}",
+      "updated": "A Sobe is updated with identifier {{ param }}",
+      "deleted": "A Sobe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sobe {{ id }}?"
+      },
+      "detail": {
+        "title": "Sobe"
+      },
+      "id": "ID",
+      "brojSobe": "Broj Sobe",
+      "cijena": "Cijena"
+    }
+  }
+}
