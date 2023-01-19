@@ -227,4 +227,13 @@ public class RezervacijeResource {
                 .collect(Collectors.toList());
         }
     }
+
+    @GetMapping("/rezervacije/{dolazak}/{odlazak}")
+    public List<Rezervacije> getNadjiRezervaciju(
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dolazak,
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String odlazak
+    ) {
+        List<Rezervacije> sobeRezervacije = rezervacijeRepository.findRezervacije(dolazak, odlazak);
+        return sobeRezervacije;
+    }
 }
