@@ -221,7 +221,8 @@ public class RezervacijeResource {
                 .findAll()
                 .stream()
                 .filter(bookings ->
-                    bookings.getDatumDolaska().isAfter(startDate.minusDays(1)) && bookings.getDatumOdlaska().isBefore(endDate.plusDays(1))
+                    //                    (bookings) -> bookings.getCheckin().isAfter(startDate.minusDays(1)) && bookings.getCheckout().isBefore(endDate.plusDays(1)))
+                    bookings.getDatumOdlaska().isAfter(startDate.minusDays(1)) && bookings.getDatumDolaska().isBefore(endDate.plusDays(1))
                 )
                 .collect(Collectors.toList());
         }
