@@ -16,6 +16,7 @@ export type EntityArrayResponseType = HttpResponse<IRezervacije[]>;
 @Injectable({ providedIn: 'root' })
 export class RezervacijeService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/rezervacijes');
+  protected resourceUrlBooking = this.applicationConfigService.getEndpointFor('api/bookings/date/');
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
@@ -102,7 +103,8 @@ export class RezervacijeService {
     return res;
   }
 
-  getBookingsByDate(startDate: string | undefined, endDate: string | undefined): Observable<any> {
-    return this.http.get('http://localhost:9000/bookings/date/' + startDate + '/to/' + endDate);
+  getBookingsByDate(startDate: string | undefined, endDate: string | undefined): Observable<EntityArrayResponseType> {
+    // return this.http.get<IRezervacije[]>('http://localhost:9000/api/bookings/date/' + startDate + '/to/' + endDate, { observe: 'response' });
+    return this.http.get<IRezervacije[]>(`${this.resourceUrlBooking}/${startDate}/to/${endDate}`, { observe: 'response' });
   }
 }

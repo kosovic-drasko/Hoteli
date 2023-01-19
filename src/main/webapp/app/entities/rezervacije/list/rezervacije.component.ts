@@ -15,7 +15,7 @@ import { RezervacijeDeleteDialogComponent } from '../delete/rezervacije-delete-d
   templateUrl: './rezervacije.component.html',
 })
 export class RezervacijeComponent implements OnInit {
-  rezervacijes?: IRezervacije[];
+  rezervacijes?: IRezervacije[] | null;
   dolazak?: string;
   odlazak?: string;
   isLoading = false;
@@ -36,6 +36,7 @@ export class RezervacijeComponent implements OnInit {
   loadPage(page?: number, dontNavigate?: boolean): void {
     this.isLoading = true;
     const pageToLoad: number = page ?? this.page ?? 1;
+    console.log('to je....', this.dolazak);
 
     this.rezervacijeService
       .query({
@@ -54,10 +55,14 @@ export class RezervacijeComponent implements OnInit {
         },
       });
   }
-  // booking(){
-  //     this.rezervacijeService.getBookingsByDate(this.dolazak,this.odlazak).
-  //       subscribe({next})
-  // }
+  booking(): any {
+    this.rezervacijeService.getBookingsByDate(this.dolazak, this.odlazak).subscribe({
+      next: (res: HttpResponse<IRezervacije[]>) => {
+        this.rezervacijes = res.body;
+        console.log('to je....', this.dolazak);
+      },
+    });
+  }
   ngOnInit(): void {
     this.handleNavigation();
   }

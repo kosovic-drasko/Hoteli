@@ -7,7 +7,9 @@
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="hoteliApp.rezervacije.home.refreshListLabel">Refresh List</span>
       </button>
-
+      <input type="date" [(ngModel)]="dolazak" />
+      <input type="date" [(ngModel)]="odlazak" />
+      <button class="btn btn-primary" (click)="booking()">Nadji</button>
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
@@ -51,8 +53,8 @@
             <a [routerLink]="['/rezervacije', rezervacije.id, 'view']">{{ rezervacije.id }}</a>
           </td>
           <td>{{ rezervacije.brojSobe }}</td>
-          <td>{{ rezervacije.datumDolaska | formatMediumDate }}</td>
-          <td>{{ rezervacije.datumOdlaska | formatMediumDate }}</td>
+          <td>{{ rezervacije.datumDolaska }}</td>
+          <td>{{ rezervacije.datumOdlaska }}</td>
           <td class="text-end">
             <div class="btn-group">
               <button

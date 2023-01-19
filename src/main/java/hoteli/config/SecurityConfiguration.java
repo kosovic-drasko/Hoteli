@@ -58,6 +58,7 @@ public class SecurityConfiguration {
                 .antMatchers("/app/**/*.{js,html}")
                 .antMatchers("/i18n/**")
                 .antMatchers("/content/**")
+                .antMatchers("/bookings/date/**")
                 .antMatchers("/swagger-ui/**")
                 .antMatchers("/test/**");
     }
