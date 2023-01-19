@@ -1,0 +1,53 @@
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand text-warning">&nbsp;&nbsp;
+      <i class="fa fa-globe" ></i>  LUXURY STAYS</a>
+      <button class="navbar-toggler " data-toggle="collapse" data-target="#menu"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+  
+    <h2 style="background-color: cornflowerblue; text-align: center;" class="text-white p-2 rounded"><i class="fas fa-sign-in"></i> &nbsp;Log In</h2>
+  
+  <!-- User Name : <input type="text" name="username" [(ngModel)]="username">
+    Password : <input type="password" name="password" [(ngModel)]="password">
+    <button (click)=checkLogin()> Login </button>
+    <app-customer *ngIf = "registerUser.user.role==='customer'" [customer]="registerUser"></app-customer>-->
+
+    <div class="divheader"></div>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <br>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="username" [(ngModel)]="username" name="username">
+                            
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <button (click)=checkLogin() value="Login" class="btn float-right login_btn">LogIn</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        Don't have an account?<a routerLink = "/register" style="color: orange;">Sign Up</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" style="color: palegoldenrod;">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
