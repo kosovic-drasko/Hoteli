@@ -8,9 +8,11 @@ import hoteli.service.criteria.RezervacijeCriteria;
 import hoteli.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
@@ -18,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -79,7 +82,7 @@ public class RezervacijeResource {
     /**
      * {@code PUT  /rezervacijes/:id} : Updates an existing rezervacije.
      *
-     * @param id the id of the rezervacije to save.
+     * @param id          the id of the rezervacije to save.
      * @param rezervacije the rezervacije to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated rezervacije,
      * or with status {@code 400 (Bad Request)} if the rezervacije is not valid,
@@ -113,7 +116,7 @@ public class RezervacijeResource {
     /**
      * {@code PATCH  /rezervacijes/:id} : Partial updates given fields of an existing rezervacije, field will ignore if it is null
      *
-     * @param id the id of the rezervacije to save.
+     * @param id          the id of the rezervacije to save.
      * @param rezervacije the rezervacije to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated rezervacije,
      * or with status {@code 400 (Bad Request)} if the rezervacije is not valid,
@@ -203,5 +206,24 @@ public class RezervacijeResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/bookings/date/{startDate}/to/{endDate}")
+    public List<Rezervacije> showRezervacijesByDate(
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
+    ) {
+        log.debug("Inside showRezervacijesByDate() method of RezervacijeController");
+        if ((startDate.compareTo(endDate)) > 0) {
+            return null;
+        } else {
+            return rezervacijeRepository
+                .findAll()
+                .stream()
+                .filter(bookings ->
+                    bookings.getDatumDolaska().isAfter(startDate.minusDays(1)) && bookings.getDatumOdlaska().isBefore(endDate.plusDays(1))
+                )
+                .collect(Collectors.toList());
+        }
     }
 }
