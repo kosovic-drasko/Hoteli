@@ -16,6 +16,8 @@ import { RezervacijeDeleteDialogComponent } from '../delete/rezervacije-delete-d
 })
 export class RezervacijeComponent implements OnInit {
   rezervacijes?: IRezervacije[];
+  dolazak?: string;
+  odlazak?: string;
   isLoading = false;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -52,7 +54,10 @@ export class RezervacijeComponent implements OnInit {
         },
       });
   }
-
+  // booking(){
+  //     this.rezervacijeService.getBookingsByDate(this.dolazak,this.odlazak).
+  //       subscribe({next})
+  // }
   ngOnInit(): void {
     this.handleNavigation();
   }
