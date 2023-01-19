@@ -101,4 +101,8 @@ export class RezervacijeService {
     }
     return res;
   }
+
+  getBookingsByDate(startDate: string, endDate: string): Observable<any> {
+    return this.http.get('http://localhost:9000/bookings/date/' + startDate + '/to/' + endDate);
+  }
 }
