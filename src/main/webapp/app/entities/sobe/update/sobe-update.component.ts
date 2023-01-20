@@ -15,6 +15,7 @@ import { SobeService } from '../service/sobe.service';
 export class SobeUpdateComponent implements OnInit {
   isSaving = false;
   sobes?: ISobe | undefined;
+  definisano?: boolean;
   editForm = this.fb.group({
     id: [],
     brojSobe: [null, [Validators.required]],
@@ -26,6 +27,13 @@ export class SobeUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ sobe }) => {
       this.updateForm(sobe);
+      if (sobe.id !== undefined) {
+        this.definisano = true;
+        console.log('definisano', this.definisano);
+      } else {
+        this.definisano = false;
+        console.log('definisano', this.definisano);
+      }
     });
   }
 
@@ -38,8 +46,12 @@ export class SobeUpdateComponent implements OnInit {
     const sobe = this.createFromForm();
     if (sobe.id !== undefined) {
       this.subscribeToSaveResponse(this.sobeService.update(sobe));
+      // this.definisano=true
+      // console.log('nedefinisano',this.definisano);
     } else {
       this.subscribeToSaveResponse(this.sobeService.create(sobe));
+      // this.definisano=false
+      // console.log('nedefinisano',this.definisano);
     }
   }
 
