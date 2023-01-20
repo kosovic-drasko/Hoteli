@@ -1,0 +1,19 @@
+{
+  "hoteliApp": {
+    "sobeRezervacije": {
+      "home": {
+        "title": "Sobe Rezervacijes",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Sobe Rezervacijes found"
+      },
+      "detail": {
+        "title": "Sobe Rezervacije"
+      },
+      "id": "ID",
+      "brojSobe": "Broj Sobe",
+      "cijena": "Cijena",
+      "datumDolaska": "Datum Dolaska",
+      "datumOdlaska": "Datum Odlaska"
+    }
+  }
+}

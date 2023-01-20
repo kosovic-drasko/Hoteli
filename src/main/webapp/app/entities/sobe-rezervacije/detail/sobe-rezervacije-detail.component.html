@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sobeRezervacije">
+      <h2 data-cy="sobeRezervacijeDetailsHeading"><span jhiTranslate="hoteliApp.sobeRezervacije.detail.title">Sobe Rezervacije</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sobeRezervacije.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.sobeRezervacije.brojSobe">Broj Sobe</span></dt>
+        <dd>
+          <span>{{ sobeRezervacije.brojSobe }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.sobeRezervacije.cijena">Cijena</span></dt>
+        <dd>
+          <span>{{ sobeRezervacije.cijena }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.sobeRezervacije.datumDolaska">Datum Dolaska</span></dt>
+        <dd>
+          <span>{{ sobeRezervacije.datumDolaska | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.sobeRezervacije.datumOdlaska">Datum Odlaska</span></dt>
+        <dd>
+          <span>{{ sobeRezervacije.datumOdlaska | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div>
+  <h2 id="page-heading" data-cy="SobeRezervacijeHeading">
+    <span jhiTranslate="hoteliApp.sobeRezervacije.home.title">Sobe Rezervacijes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hoteliApp.sobeRezervacije.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sobeRezervacijes?.length === 0">
+    <span jhiTranslate="hoteliApp.sobeRezervacije.home.notFound">No sobeRezervacijes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sobeRezervacijes && sobeRezervacijes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="brojSobe">
+            <span jhiTranslate="hoteliApp.sobeRezervacije.brojSobe">Broj Sobe</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cijena">
+            <span jhiTranslate="hoteliApp.sobeRezervacije.cijena">Cijena</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="datumDolaska">
+            <span jhiTranslate="hoteliApp.sobeRezervacije.datumDolaska">Datum Dolaska</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="datumOdlaska">
+            <span jhiTranslate="hoteliApp.sobeRezervacije.datumOdlaska">Datum Odlaska</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sobeRezervacije of sobeRezervacijes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sobe-rezervacije', sobeRezervacije.id, 'view']">{{ sobeRezervacije.id }}</a>
+          </td>
+          <td>{{ sobeRezervacije.brojSobe }}</td>
+          <td>{{ sobeRezervacije.cijena }}</td>
+          <td>{{ sobeRezervacije.datumDolaska | formatMediumDate }}</td>
+          <td>{{ sobeRezervacije.datumOdlaska | formatMediumDate }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/sobe-rezervacije', sobeRezervacije.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="sobeRezervacijes && sobeRezervacijes.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
