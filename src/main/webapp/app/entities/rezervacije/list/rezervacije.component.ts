@@ -63,6 +63,16 @@ export class RezervacijeComponent implements OnInit {
       },
     });
   }
+
+  rezervacije(): any {
+    this.rezervacijeService.getRezervacije(this.dolazak, this.odlazak).subscribe({
+      next: (res: HttpResponse<IRezervacije[]>) => {
+        this.rezervacijes = res.body;
+        console.log('to je....', this.dolazak);
+      },
+    });
+  }
+
   ngOnInit(): void {
     this.handleNavigation();
   }

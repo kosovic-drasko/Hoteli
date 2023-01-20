@@ -17,6 +17,7 @@ export type EntityArrayResponseType = HttpResponse<IRezervacije[]>;
 export class RezervacijeService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/rezervacijes');
   protected resourceUrlBooking = this.applicationConfigService.getEndpointFor('api/bookings/date/');
+  protected resourceUrlRezervacije = this.applicationConfigService.getEndpointFor('api/rezervacije');
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
@@ -106,5 +107,9 @@ export class RezervacijeService {
   getBookingsByDate(startDate: string | undefined, endDate: string | undefined): Observable<EntityArrayResponseType> {
     // return this.http.get<IRezervacije[]>('http://localhost:9000/api/bookings/date/' + startDate + '/to/' + endDate, { observe: 'response' });
     return this.http.get<IRezervacije[]>(`${this.resourceUrlBooking}/${startDate}/to/${endDate}`, { observe: 'response' });
+  }
+
+  getRezervacije(startDate: string | undefined, endDate: string | undefined): Observable<EntityArrayResponseType> {
+    return this.http.get<IRezervacije[]>(`${this.resourceUrlRezervacije}/${startDate}/${endDate}`, { observe: 'response' });
   }
 }

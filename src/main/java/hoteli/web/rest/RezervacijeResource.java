@@ -23,6 +23,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -229,6 +230,7 @@ public class RezervacijeResource {
     }
 
     @GetMapping("/rezervacije/{dolazak}/{odlazak}")
+    @Transactional
     public List<Rezervacije> getNadjiRezervaciju(
         @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dolazak,
         @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String odlazak
