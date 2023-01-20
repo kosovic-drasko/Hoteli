@@ -1,5 +1,6 @@
 package hoteli.web.rest;
 
+import hoteli.domain.Rezervacije;
 import hoteli.domain.SobeRezervacije;
 import hoteli.repository.SobeRezervacijeRepository;
 import hoteli.service.SobeRezervacijeQueryService;
@@ -16,8 +17,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -90,5 +93,15 @@ public class SobeRezervacijeResource {
         log.debug("REST request to get SobeRezervacije : {}", id);
         Optional<SobeRezervacije> sobeRezervacije = sobeRezervacijeService.findOne(id);
         return ResponseUtil.wrapOrNotFound(sobeRezervacije);
+    }
+
+    @GetMapping("/sobe-rezervacije/{dolazak}/{odlazak}")
+    @Transactional
+    public List<SobeRezervacije> getNadjiRezervaciju(
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dolazak,
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String odlazak
+    ) {
+        List<SobeRezervacije> sobeRezervacije = sobeRezervacijeRepository.findRezervacije(dolazak, odlazak);
+        return sobeRezervacije;
     }
 }

@@ -13,7 +13,7 @@ import { SobeRezervacijeService } from '../service/sobe-rezervacije.service';
   templateUrl: './sobe-rezervacije.component.html',
 })
 export class SobeRezervacijeComponent implements OnInit {
-  sobeRezervacijes?: ISobeRezervacije[];
+  sobeRezervacijes?: ISobeRezervacije[] | null;
   isLoading = false;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -21,6 +21,8 @@ export class SobeRezervacijeComponent implements OnInit {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  dolazak?: string;
+  odlazak?: string;
 
   constructor(
     protected sobeRezervacijeService: SobeRezervacijeService,
@@ -99,5 +101,23 @@ export class SobeRezervacijeComponent implements OnInit {
 
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
+  }
+
+  booking(): any {
+    this.sobeRezervacijeService.getBookingsByDate(this.dolazak, this.odlazak).subscribe({
+      next: (res: HttpResponse<ISobeRezervacije[]>) => {
+        this.sobeRezervacijes = res.body;
+        console.log('to je....', this.dolazak);
+      },
+    });
+  }
+
+  rezervacije(): any {
+    this.sobeRezervacijeService.getRezervacije(this.dolazak, this.odlazak).subscribe({
+      next: (res: HttpResponse<ISobeRezervacije[]>) => {
+        this.sobeRezervacijes = res.body;
+        console.log('to je....', this.dolazak);
+      },
+    });
   }
 }
