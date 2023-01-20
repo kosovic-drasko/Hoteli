@@ -7,6 +7,9 @@ import { ISobeRezervacije } from '../sobe-rezervacije.model';
 
 import { ASC, DESC, ITEMS_PER_PAGE, SORT } from 'app/config/pagination.constants';
 import { SobeRezervacijeService } from '../service/sobe-rezervacije.service';
+import { IRezervacije } from '../../rezervacije/rezervacije.model';
+import { RezervacijeDeleteDialogComponent } from '../../rezervacije/delete/rezervacije-delete-dialog.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-sobe-rezervacije',
@@ -27,7 +30,8 @@ export class SobeRezervacijeComponent implements OnInit {
   constructor(
     protected sobeRezervacijeService: SobeRezervacijeService,
     protected activatedRoute: ActivatedRoute,
-    protected router: Router
+    protected router: Router,
+    protected modalService: NgbModal
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {
@@ -118,6 +122,17 @@ export class SobeRezervacijeComponent implements OnInit {
         this.sobeRezervacijes = res.body;
         console.log('to je....', this.dolazak);
       },
+    });
+  }
+
+  delete(sobaRezervacije: ISobeRezervacije): void {
+    const modalRef = this.modalService.open(RezervacijeDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.rezervacije = sobaRezervacije;
+    // unsubscribe not needed because closed completes on modal close
+    modalRef.closed.subscribe(reason => {
+      if (reason === 'deleted') {
+        this.loadPage();
+      }
     });
   }
 }
