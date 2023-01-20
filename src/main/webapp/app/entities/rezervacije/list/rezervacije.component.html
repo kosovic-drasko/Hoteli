@@ -7,9 +7,7 @@
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="hoteliApp.rezervacije.home.refreshListLabel">Refresh List</span>
       </button>
-      <input type="date" [(ngModel)]="dolazak" />
-      <input type="date" [(ngModel)]="odlazak" />
-      <button class="btn btn-primary" (click)="rezervacije()">Nadji</button>
+
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
@@ -19,6 +17,11 @@
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="hoteliApp.rezervacije.home.createLabel"> Create a new Rezervacije </span>
       </button>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="rezervacije()">Nadji</button>
+      <input class="form-control input-sm" type="date" [(ngModel)]="dolazak" />
+      <input class="form-control input-sm" type="date" [(ngModel)]="odlazak" />
     </div>
   </h2>
 
