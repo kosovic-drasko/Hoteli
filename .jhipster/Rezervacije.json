@@ -9,13 +9,11 @@
     },
     {
       "fieldName": "datumDolaska",
-      "fieldType": "LocalDate",
-      "fieldValidateRules": ["required"]
+      "fieldType": "LocalDate"
     },
     {
       "fieldName": "datumOdlaska",
-      "fieldType": "LocalDate",
-      "fieldValidateRules": ["required"]
+      "fieldType": "LocalDate"
     }
   ],
   "jpaMetamodelFiltering": true,
