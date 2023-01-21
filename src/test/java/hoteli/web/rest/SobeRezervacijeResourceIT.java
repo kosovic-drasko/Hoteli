@@ -6,12 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import hoteli.IntegrationTest;
-import hoteli.domain.SobeRezervacije;
-import hoteli.repository.SobeRezervacijeRepository;
-import hoteli.service.criteria.SobeRezervacijeCriteria;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.persistence.EntityManager;

@@ -55,14 +55,6 @@ export class RezervacijeComponent implements OnInit {
         },
       });
   }
-  booking(): any {
-    this.rezervacijeService.getBookingsByDate(this.dolazak, this.odlazak).subscribe({
-      next: (res: HttpResponse<IRezervacije[]>) => {
-        this.rezervacijes = res.body;
-        console.log('to je....', this.dolazak);
-      },
-    });
-  }
 
   rezervacije(): any {
     this.rezervacijeService.getRezervacije(this.dolazak, this.odlazak).subscribe({
@@ -133,5 +125,14 @@ export class RezervacijeComponent implements OnInit {
 
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
+  }
+
+  booking(): any {
+    this.rezervacijeService.getBookingsByDate(this.dolazak, this.odlazak).subscribe({
+      next: (res: HttpResponse<IRezervacije[]>) => {
+        this.rezervacijes = res.body;
+        console.log('to je....', this.dolazak);
+      },
+    });
   }
 }
