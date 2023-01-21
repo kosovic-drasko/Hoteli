@@ -20,18 +20,18 @@ public interface RezervacijeRepository extends JpaRepository<Rezervacije, Long>,
     //
 
     @Query(
-        value = "" +
-        " SELECT r.id,r.broj_sobe,r.datum_dolaska,r.datum_odlaska\n" +
+        value = "    SELECT r.id,r.broj_sobe,r.datum_dolaska,r.datum_odlaska\n" +
         "    FROM rezervacije r\n" +
         "    WHERE r.broj_sobe\n" +
         "              NOT IN (\n" +
         "              SELECT b.broj_sobe  FROM rezervacije b\n" +
-        "              WHERE NOT (b.datum_odlaska  <:dolazak)\n" +
+        "              WHERE NOT (b.datum_odlaska  <\n" +
+        "                         ?2\n" +
         "                  OR\n" +
-        "                         b.datum_dolaska  >:odlazak)\n" +
+        "                         b.datum_dolaska  >?1)\n" +
         "\n" +
-        "    ORDER BY r.broj_sobe " +
-        "",
+        "          )\n" +
+        "    ORDER BY r.broj_sobe",
         nativeQuery = true
     )
     List<Rezervacije> findRezervacije(@Param("dolazak") String dolazak, @Param("odlazak") String odlazak);
