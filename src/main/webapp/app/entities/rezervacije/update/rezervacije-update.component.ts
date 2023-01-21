@@ -14,7 +14,7 @@ import { RezervacijeService } from '../service/rezervacije.service';
 })
 export class RezervacijeUpdateComponent implements OnInit {
   isSaving = false;
-
+  definisano?: boolean;
   editForm = this.fb.group({
     id: [],
     brojSobe: [null, [Validators.required]],
@@ -27,6 +27,13 @@ export class RezervacijeUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ rezervacije }) => {
       this.updateForm(rezervacije);
+      if (rezervacije.id !== undefined) {
+        this.definisano = true;
+        console.log('definisano', this.definisano);
+      } else {
+        this.definisano = false;
+        console.log('definisano', this.definisano);
+      }
     });
   }
 

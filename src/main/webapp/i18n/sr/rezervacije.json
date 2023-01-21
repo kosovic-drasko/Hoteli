@@ -4,8 +4,8 @@
       "home": {
         "title": "Rezervacijes",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Kreiraj novi Rezervacije",
-        "createOrEditLabel": "Kreirajte ili izmenite Rezervacije",
+        "createLabel": "Kreiraj novu Rezervaciju",
+        "createOrEditLabel": "Izmjenite Rezervaciju",
         "notFound": "No Rezervacijes found"
       },
       "created": "Kreiran je novi Rezervacije pod nazivom {{ param }}",
