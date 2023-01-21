@@ -235,7 +235,6 @@ public class RezervacijeResource {
         @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dolazak,
         @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String odlazak
     ) {
-        List<Rezervacije> sobeRezervacije = rezervacijeRepository.findRezervacije(dolazak, odlazak);
-        return sobeRezervacije;
+        return rezervacijeRepository.findRezervacije(dolazak, odlazak);
     }
 }
