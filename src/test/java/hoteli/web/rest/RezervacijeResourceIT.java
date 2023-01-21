@@ -149,40 +149,6 @@ class RezervacijeResourceIT {
 
     @Test
     @Transactional
-    void checkDatumDolaskaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = rezervacijeRepository.findAll().size();
-        // set the field null
-        rezervacije.setDatumDolaska(null);
-
-        // Create the Rezervacije, which fails.
-
-        restRezervacijeMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(rezervacije)))
-            .andExpect(status().isBadRequest());
-
-        List<Rezervacije> rezervacijeList = rezervacijeRepository.findAll();
-        assertThat(rezervacijeList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    void checkDatumOdlaskaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = rezervacijeRepository.findAll().size();
-        // set the field null
-        rezervacije.setDatumOdlaska(null);
-
-        // Create the Rezervacije, which fails.
-
-        restRezervacijeMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(rezervacije)))
-            .andExpect(status().isBadRequest());
-
-        List<Rezervacije> rezervacijeList = rezervacijeRepository.findAll();
-        assertThat(rezervacijeList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     void getAllRezervacijes() throws Exception {
         // Initialize the database
         rezervacijeRepository.saveAndFlush(rezervacije);

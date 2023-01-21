@@ -26,12 +26,10 @@ public class Rezervacije implements Serializable {
     @Column(name = "broj_sobe", nullable = false)
     private Integer brojSobe;
 
-    @NotNull
-    @Column(name = "datum_dolaska", nullable = false)
+    @Column(name = "datum_dolaska")
     private LocalDate datumDolaska;
 
-    @NotNull
-    @Column(name = "datum_odlaska", nullable = false)
+    @Column(name = "datum_odlaska")
     private LocalDate datumOdlaska;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -51,17 +51,6 @@
               <fa-icon icon="calendar-alt"></fa-icon>
             </button>
           </div>
-          <div
-            *ngIf="editForm.get('datumDolaska')!.invalid && (editForm.get('datumDolaska')!.dirty || editForm.get('datumDolaska')!.touched)"
-          >
-            <small
-              class="form-text text-danger"
-              *ngIf="editForm.get('datumDolaska')?.errors?.required"
-              jhiTranslate="entity.validation.required"
-            >
-              This field is required.
-            </small>
-          </div>
         </div>
 
         <div class="row mb-3">
@@ -80,17 +69,6 @@
             <button type="button" class="btn btn-secondary" (click)="datumOdlaskaDp.toggle()">
               <fa-icon icon="calendar-alt"></fa-icon>
             </button>
-          </div>
-          <div
-            *ngIf="editForm.get('datumOdlaska')!.invalid && (editForm.get('datumOdlaska')!.dirty || editForm.get('datumOdlaska')!.touched)"
-          >
-            <small
-              class="form-text text-danger"
-              *ngIf="editForm.get('datumOdlaska')?.errors?.required"
-              jhiTranslate="entity.validation.required"
-            >
-              This field is required.
-            </small>
           </div>
         </div>
       </div>

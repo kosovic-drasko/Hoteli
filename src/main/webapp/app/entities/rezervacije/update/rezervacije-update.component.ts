@@ -18,8 +18,8 @@ export class RezervacijeUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     brojSobe: [null, [Validators.required]],
-    datumDolaska: [null, [Validators.required]],
-    datumOdlaska: [null, [Validators.required]],
+    datumDolaska: [],
+    datumOdlaska: [],
   });
 
   constructor(protected rezervacijeService: RezervacijeService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
