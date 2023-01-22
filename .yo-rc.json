@@ -13,7 +13,7 @@
     "creationTimestamp": 1674069216656,
     "databaseType": "sql",
     "devDatabaseType": "mysql",
-    "devServerPort": 4200,
+    "devServerPort": 5200,
     "dtoSuffix": "DTO",
     "enableGradleEnterprise": false,
     "enableHibernateCache": true,

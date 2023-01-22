@@ -229,15 +229,7 @@ public class RezervacijeResource {
         }
     }
 
-    //    @GetMapping("/rezervacije/{dolazak}/{odlazak}")
-    //    @Transactional
-    //    public List<Rezervacije> getNadjiRezervaciju(
-    //        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dolazak,
-    //        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String odlazak
-    //    ) {
-    //        return rezervacijeRepository.findRezervacije(dolazak, odlazak);
-    //    }
-    @GetMapping("/rezervaciju/{dolazak}/{odlazak}")
+    @GetMapping("/rezervacije/{dolazak}/{odlazak}")
     @Transactional
     public List<Rezervacije> getNadji(
         @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dolazak,
