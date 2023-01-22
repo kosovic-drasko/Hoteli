@@ -9,7 +9,7 @@
         "main": "Entities",
         "sobe": "Sobe",
         "rezervacije": "Rezervacije",
-        "rezervacijeSobe": "Rezervacije Sobe",
+        "pregled": "Pregled Soba",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

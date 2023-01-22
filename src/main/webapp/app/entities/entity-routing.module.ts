@@ -14,6 +14,12 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'hoteliApp.rezervacije.home.title' },
         loadChildren: () => import('./rezervacije/rezervacije.module').then(m => m.RezervacijeModule),
       },
+      {
+        path: 'pregled-soba',
+        data: { pageTitle: 'hoteliApp.rezervacije.home.title' },
+        loadChildren: () =>
+          import('./tabela-raspolozivosti-soba/tabela-raspolozivosti-soba.module').then(m => m.TabelaRaspolozivostiSobaModule),
+      },
 
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),

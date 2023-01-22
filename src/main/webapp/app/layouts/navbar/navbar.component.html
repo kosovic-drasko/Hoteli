@@ -58,6 +58,18 @@
             <li>
               <a
                 class="dropdown-item"
+                routerLink="pregled-soba"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.entities.pregled"> Soba</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
                 routerLink="rezervacije"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
