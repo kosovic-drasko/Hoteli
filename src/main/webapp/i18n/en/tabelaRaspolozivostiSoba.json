@@ -1,0 +1,26 @@
+{
+  "hoteliApp": {
+    "tabelaRaspolozivostiSoba": {
+      "home": {
+        "title": "Tabela Raspolozivosti Sobas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tabela Raspolozivosti Soba",
+        "createOrEditLabel": "Create or edit a Tabela Raspolozivosti Soba",
+        "notFound": "No Tabela Raspolozivosti Sobas found"
+      },
+      "created": "A new Tabela Raspolozivosti Soba is created with identifier {{ param }}",
+      "updated": "A Tabela Raspolozivosti Soba is updated with identifier {{ param }}",
+      "deleted": "A Tabela Raspolozivosti Soba is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tabela Raspolozivosti Soba {{ id }}?"
+      },
+      "detail": {
+        "title": "Tabela Raspolozivosti Soba"
+      },
+      "id": "ID",
+      "brojSobe": "Broj Sobe",
+      "datumDolaska": "Datum Dolaska",
+      "datumOdlaska": "Datum Odlaska"
+    }
+  }
+}

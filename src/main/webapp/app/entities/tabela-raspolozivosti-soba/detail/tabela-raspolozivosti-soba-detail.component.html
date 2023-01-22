@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tabelaRaspolozivostiSoba">
+      <h2 data-cy="tabelaRaspolozivostiSobaDetailsHeading">
+        <span jhiTranslate="hoteliApp.tabelaRaspolozivostiSoba.detail.title">Tabela Raspolozivosti Soba</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tabelaRaspolozivostiSoba.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.tabelaRaspolozivostiSoba.brojSobe">Broj Sobe</span></dt>
+        <dd>
+          <span>{{ tabelaRaspolozivostiSoba.brojSobe }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.tabelaRaspolozivostiSoba.datumDolaska">Datum Dolaska</span></dt>
+        <dd>
+          <span>{{ tabelaRaspolozivostiSoba.datumDolaska | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="hoteliApp.tabelaRaspolozivostiSoba.datumOdlaska">Datum Odlaska</span></dt>
+        <dd>
+          <span>{{ tabelaRaspolozivostiSoba.datumOdlaska | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tabela-raspolozivosti-soba', tabelaRaspolozivostiSoba.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

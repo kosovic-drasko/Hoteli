@@ -1,0 +1,26 @@
+{
+  "hoteliApp": {
+    "tabelaRaspolozivostiSoba": {
+      "home": {
+        "title": "Tabela Raspolozivosti Sobas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Tabela Raspolozivosti Soba",
+        "createOrEditLabel": "Kreirajte ili izmenite Tabela Raspolozivosti Soba",
+        "notFound": "No Tabela Raspolozivosti Sobas found"
+      },
+      "created": "Kreiran je novi Tabela Raspolozivosti Soba pod nazivom {{ param }}",
+      "updated": "Tabela Raspolozivosti Soba pod nazivom {{ param }} je ažuriran",
+      "deleted": "Tabela Raspolozivosti Soba pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Tabela Raspolozivosti Soba pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Tabela Raspolozivosti Soba"
+      },
+      "id": "ID",
+      "brojSobe": "Broj Sobe",
+      "datumDolaska": "Datum Dolaska",
+      "datumOdlaska": "Datum Odlaska"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "changelogDate": "20230122085423",
+  "fields": [
+    {
+      "fieldName": "brojSobe",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "datumDolaska",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datumOdlaska",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "TabelaRaspolozivostiSoba",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
