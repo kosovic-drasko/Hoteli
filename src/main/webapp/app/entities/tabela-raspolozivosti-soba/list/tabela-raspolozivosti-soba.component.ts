@@ -6,8 +6,8 @@ import { CalendarEvent, CalendarView } from 'angular-calendar';
 
 @Component({
   selector: 'jhi-tabela-raspolozivosti-soba',
-  styleUrls: ['/jhi-tabela-raspolozivosti.scss'],
-  templateUrl: 'jhi-tabela-raspolozivosti-soba.component.html',
+  styleUrls: ['/tebela-raspolozivosti.scss'],
+  templateUrl: 'tabela-raspolozivosti-soba.component.html',
 })
 export class TabelaRaspolozivostiSobaComponent {
   viewDate: Date = new Date();
